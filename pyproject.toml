@@ -1,17 +1,18 @@
 [tool.poetry]
-name = "reel-capture"
+name = "reel_capture"
 version = "0.1.0"
 description = "A script to download Facebook videos using Python and Poetry"
-authors = ["F. Gabriel Cruz"]
+authors = ["Gabe Cruz"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.8"               # Supports Python 3.8.x, 3.9.x, etc., but not 4.0.0
-youtube-dl = "^2021.12.17"    # A specific version for youtube-dl that is stable
-facebook-scraper = "^0.2.45"  # A stable version for facebook-scraper
+lxml-html-clean = "^0.2.2"
+yt-dlp = "^2024.8.6"
+pytest = "^6.2.4"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^6.2.4"             # Lock pytest to a stable version for testing
+pytest = "^6.2.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
