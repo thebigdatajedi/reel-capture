@@ -13,14 +13,17 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 
 # Spinner animation to indicate work in progress
-def spinner() -> None:
-    spin = ['|', '/', '-', '\\']
-    idx = 0
-    while True:
-        sys.stdout.write(f"\rDownloading... {spin[idx % len(spin)]}")
-        sys.stdout.flush()
-        idx += 1
+# Spinner for the user to know we're still working
+def spinner(max_cycles: int = None):
+    import itertools
+    spinstr = '|/-\\'
+    cycles = 0
+    for char in itertools.cycle(spinstr):
+        print(f"\rDownloading... {char}", end="", flush=True)
         time.sleep(0.1)
+        if max_cycles and cycles >= max_cycles:
+            break
+        cycles += 1
 
 
 # Function to extract part of the URL for dynamic title
